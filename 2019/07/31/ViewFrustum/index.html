@@ -5,15 +5,21 @@
   
 
   
-  <title>Hexo</title>
+  <title>判断点与多面体空间位置关系的JS实现 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="项目中遇到一个问题，需要判断点是否在视锥体内部，于是从百度学术中找到了一篇判断点与多面体空间位置关系的论文，链接在这石露, 白冰, 李小春. 判断点与多面体空间位置关系的一个新算法[C]// 全国岩石力学与工程学术大会. 2008.，论文介绍的算法是求出每个面的法向量（方向向外），然后在面上选一点引向待判断点求出一个向量，然后计算数量积，全小于0则在内部，有等于0则在顶点，有大于0则说明在外部。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断点与多面体空间位置关系的JS实现">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/ViewFrustum/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="项目中遇到一个问题，需要判断点是否在视锥体内部，于是从百度学术中找到了一篇判断点与多面体空间位置关系的论文，链接在这石露, 白冰, 李小春. 判断点与多面体空间位置关系的一个新算法[C]// 全国岩石力学与工程学术大会. 2008.，论文介绍的算法是求出每个面的法向量（方向向外），然后在面上选一点引向待判断点求出一个向量，然后计算数量积，全小于0则在内部，有等于0则在顶点，有大于0则说明在外部。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/31/ViewFrustum/ViewFrustum_files/1.png">
+<meta property="og:updated_time" content="2019-07-31T01:54:11.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="判断点与多面体空间位置关系的JS实现">
+<meta name="twitter:description" content="项目中遇到一个问题，需要判断点是否在视锥体内部，于是从百度学术中找到了一篇判断点与多面体空间位置关系的论文，链接在这石露, 白冰, 李小春. 判断点与多面体空间位置关系的一个新算法[C]// 全国岩石力学与工程学术大会. 2008.，论文介绍的算法是求出每个面的法向量（方向向外），然后在面上选一点引向待判断点求出一个向量，然后计算数量积，全小于0则在内部，有等于0则在顶点，有大于0则说明在外部。">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/31/ViewFrustum/ViewFrustum_files/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ViewFrustum" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ViewFrustum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/31/ViewFrustum/" class="article-date">
   <time datetime="2019-07-31T01:43:25.000Z" itemprop="datePublished">2019-07-31</time>
@@ -75,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/ViewFrustum/">判断点与多面体空间位置关系的JS实现</a>
+    <h1 class="article-title" itemprop="name">
+      判断点与多面体空间位置关系的JS实现
     </h1>
   
 
@@ -99,92 +103,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Node" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/31/Node/" class="article-date">
-  <time datetime="2019-07-31T01:37:01.000Z" itemprop="datePublished">2019-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/Node/">Node</a>
-    </h1>
+    <a href="/2019/07/31/Node/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>KOA简单的服务器搭建代码如下：  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa=<span class="built_in">require</span>(<span class="string">"koa"</span>);  </span><br><span class="line"><span class="keyword">const</span> app=<span class="keyword">new</span> Koa();  </span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);  </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">static</span> = <span class="built_in">require</span>(<span class="string">'koa-static'</span>);  </span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)  </span><br><span class="line"><span class="comment">//指定根目录，虽然可以有多个，但注意是根目录  </span></span><br><span class="line">app.use(<span class="keyword">static</span>(path.resolve(__dirname, <span class="string">".."</span>)));  </span><br><span class="line">app.use(<span class="keyword">async</span> (ctx) =&gt;&#123;  </span><br><span class="line"> <span class="keyword">if</span>(ctx.url===<span class="string">"/"</span>)&#123;  </span><br><span class="line"> ctx.type = <span class="string">'html'</span>;  </span><br><span class="line"> ctx.body = <span class="keyword">await</span> fs.createReadStream(<span class="string">'../index.html'</span>);  </span><br><span class="line"> &#125;  </span><br><span class="line">&#125;)  </span><br><span class="line">app.listen(<span class="number">8080</span>,()=&gt;&#123;  </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">`[Server 8080]：服务已启动 端口号：8080`</span>);  </span><br><span class="line">&#125;);  </span><br><span class="line"><span class="comment">/*   </span></span><br><span class="line"><span class="comment">//可以监听两个端口  </span></span><br><span class="line"><span class="comment">app.listen(3000,()=&gt;&#123;  </span></span><br><span class="line"><span class="comment"> console.log(`\[Server 8080\]：服务已启动 端口号：3000`);  </span></span><br><span class="line"><span class="comment">&#125;);   </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>sequelize安装后还需要安装mysql2才能使用。</strong></p>
-<p>pkg打包全局安装,bin是入口文件，assets是静态文件，如js,css,image等，代码中的写法表示所有文件夹及其中的文件。相对路径的起点在bin。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;:&quot;./service.js&quot;,   </span><br><span class="line">&quot;pkg&quot;:&#123;  </span><br><span class="line">&quot;assets&quot;:[&quot;../**/*&quot;]  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>执行pkg打包成exe时，在package.json所在的文件夹下打开命令行，然后输入命令<strong>pkg -t win package.json</strong>。<br>第一次的时间比较长，因为pkg在下载fetched-v10.15.3-win-x64（版本可能会变）这个文件。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/31/Node/" data-id="cjyqlmus20000sovd34sp1ht0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Vue" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/31/Vue/" class="article-date">
-  <time datetime="2019-07-31T01:35:38.000Z" itemprop="datePublished">2019-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/Vue/">Vue</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>子组件，props里的变量用this.somenthing可以获取，父组件传值在标签绑定。传入的props的值直接赋给子组件的data的话，props更新，但是子组件data是不会更新的。如果用computed处理，就只能get不能set，用watch处理既能get又能set</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/31/Vue/" data-id="cjyqlmus90001sovdkhlisxgs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
